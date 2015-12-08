@@ -37,6 +37,7 @@ var (
 	RegistryVersion     string
 	DistributionVersion string
 	Standalone          string
+	AcipushVersion      string
 )
 
 // object storage driver config parameters
@@ -169,6 +170,12 @@ func SetConfig(path string) error {
 		Standalone = standalone
 	} else if standalone == "" {
 		err = fmt.Errorf("Standalone version value is null")
+	}
+
+	if acipushversion := conf.String("dockyard::acipushversion"); acipushversion != "" {
+		AcipushVersion = acipushversion
+	} else if acipushversion == "" {
+		err = fmt.Errorf("Acipush version value is null")
 	}
 
 	//Dockyard object storage,default to use dockyard storage
