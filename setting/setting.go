@@ -176,7 +176,6 @@ func SetConfig(path string) error {
 		AcipushVersion = acipushversion
 	} else if acipushversion == "" {
 		err = fmt.Errorf("Acipush version value is null")
-	}
 
 	//Dockyard object storage,default to use dockyard storage
 	BackendDriver = "native"
